@@ -10,8 +10,8 @@ $.getJSON(sheetUrl, results => {
   let relations = <any[]> results.valueRanges[1].values;
 
   // Skip first elements
-  people = people.slice(1, people.length - 1);
-  relations = relations.slice(1, relations.length - 1);
+  people = people.slice(1, people.length);
+  relations = relations.slice(1, relations.length);
 
   // convert to digraph-friendly objects
   people = people.filter(person => person[0] != undefined && person[1] != undefined).map(person => {

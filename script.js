@@ -6,8 +6,8 @@ var sheetUrl = "https://sheets.googleapis.com/v4/spreadsheets/" + sheetId + "/va
 $.getJSON(sheetUrl, function (results) {
     var people = results.valueRanges[0].values;
     var relations = results.valueRanges[1].values;
-    people = people.slice(1, people.length - 1);
-    relations = relations.slice(1, relations.length - 1);
+    people = people.slice(1, people.length);
+    relations = relations.slice(1, relations.length);
     people = people.filter(function (person) { return person[0] != undefined && person[1] != undefined; }).map(function (person) {
         var id = parseInt(person[0]);
         var name = person[1];
