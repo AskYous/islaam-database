@@ -14,7 +14,7 @@ $.getJSON(sheetUrl, results => {
   relations = relations.slice(1, relations.length - 1);
 
   // convert to digraph-friendly objects
-  people = people.map(person => {
+  people = people.filter(person => person[0] != undefined && person[1] != undefined).map(person => {
     const id = parseInt(person[0]);
     const name = person[1];
 
@@ -31,7 +31,7 @@ $.getJSON(sheetUrl, results => {
   console.log(results);
   console.log(people);
   console.log(relations);
-debugger;
+
   const graph = new SVGOntologyGraph(people, relations, svg);
 
 }, error=> console.error(error));

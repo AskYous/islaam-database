@@ -8,7 +8,7 @@ $.getJSON(sheetUrl, function (results) {
     var relations = results.valueRanges[1].values;
     people = people.slice(1, people.length - 1);
     relations = relations.slice(1, relations.length - 1);
-    people = people.map(function (person) {
+    people = people.filter(function (person) { return person[0] != undefined && person[1] != undefined; }).map(function (person) {
         var id = parseInt(person[0]);
         var name = person[1];
         return {
@@ -22,6 +22,5 @@ $.getJSON(sheetUrl, function (results) {
     console.log(results);
     console.log(people);
     console.log(relations);
-    debugger;
     var graph = new SVGOntologyGraph(people, relations, svg);
 }, function (error) { return console.error(error); });
