@@ -1,4 +1,4 @@
-# islaam-database
+# Islaam Ontology Graph
 
 See a live demo [here](https://islaam-database.github.io/islaam-ontology-graph/). (Only works in Chrome.)
 
